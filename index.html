@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Produtos</title></head>
+<body>
+<h2>Lista de Produtos</h2>
+<ul>
+  {% for p in produtos %}
+    <li>{{ p.nome }} - R${{ p.preco }} - Qtde: {{ p.quantidade }}
+        <a href="/edit/{{ p.id }}">[Editar]</a>
+        <a href="/delete/{{ p.id }}">[Excluir]</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<h3>Adicionar Produto</h3>
+<form method="post" action="/add">
+  Nome: <input name="nome"><br>
+  Preço: <input name="preco"><br>
+  Quantidade: <input name="quantidade"><br>
+  <input type="submit" value="Cadastrar">
+</form>
+</body>
+</html>
